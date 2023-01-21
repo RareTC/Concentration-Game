@@ -12,10 +12,15 @@
     <script defer src="js/main.js"></script>
 </head>
 <body>
-    <h1>Concentration</h1>
-    <h2>Match 2 identical cards from memory to score.</h2>
-    <main>
-        <div id="countdown">Timer (filler)</div>
+    <section>
+        <h1>Concentration</h1>
+        <h2>Match 2 identical cards from memory to score.</h2>
+        <div id="points">
+            <div>Timer (filler)</div>
+            <div class="points">Points 0/8</div>
+        </div>
+    </section>
+    <section id="board">
         <div class="card1">1</div>
         <div class="card2">2</div>
         <div class="card3">3</div>
@@ -28,9 +33,10 @@
         <div class="card10">10</div>
         <div class="card11">11</div>
         <div class="card12">12</div>
-        <div class="points">Points 0/8</div>
+    </section>
+    <section>
         <button>Play Again</button>
-    </main>
+    </section>
     
 </body>
 </html>
