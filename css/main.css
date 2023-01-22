@@ -3,6 +3,16 @@
     box-sizing: border-box;
     text-align: center;
 }
+h1 {
+    font-size: 4vmax;
+}
+h2 {
+    font-size: 2vmax;
+}
+section > div {
+    color: #808080;
+    text-shadow: -1px 3px black;
+}
 
 body {
     background-image: url(https://w0.peakpx.com/wallpaper/230/19/HD-wallpaper-appa-netflix-the-avatar-the-last-airbender.jpg);
@@ -32,4 +42,8 @@ body {
 #points {
     display: flex;
     justify-content: space-between;
+}
+button {
+    background-color: #808080;
+    color: rgb(179, 91, 68);
 }
