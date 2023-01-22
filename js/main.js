@@ -52,8 +52,8 @@ function init () {
     board = getShuffledCards();
     //then verify the board has 2 of each, shuffled
         console.log(board);
-    timer = //2:00min;
-    points = 0;
+    // timer = //2:00min;
+    // points = 0;
     // render ();
 }
 
@@ -71,18 +71,18 @@ function renderBoard () {
 // }
 
 
-// function getShuffledCards() {
-//     const tempCards = [];
-//     //array to be returned
-//     const cards = [];
-//     //copy each source card twice and add to tempCards
-//     FACE_CARDS.forEach(function(card) {
-//         tempCards.push({...card}, {...card});
-//     });
-//     while (tempCards.length) {
-//         const rndIdx = Math.floor(Math.random() * tempCards.length);
-//         const rndCard = tempCards.splice(rndIdx, 1[0]);
-//         cards.push(rndCard);
-//     }
-//     return cards;
-// }
+function getShuffledCards() {
+    const tempCards = [];
+    //array to be returned
+    const cards = [];
+    //copy each source card twice and add to tempCards
+    FACE_CARDS.forEach(function(card) {
+        tempCards.push({...card}, {...card});
+    });
+    while (tempCards.length) {
+        const rndIdx = Math.floor(Math.random() * tempCards.length);
+        const rndCard = tempCards.splice(rndIdx, 1)[0];
+        cards.push(rndCard);
+    }
+    return cards;
+}
