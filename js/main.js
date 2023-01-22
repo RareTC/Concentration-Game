@@ -1,6 +1,17 @@
 /*----- constants -----*/
-const CARDS = {}
-const WINNING MATCHES = {}
+const CARDS = [
+    {
+        name: 'back'
+        img: 'images/back.png'
+    }
+    {}
+    {}
+    {}
+    {}
+    {}
+    {}
+]
+const BOARD = document.querySelector.apply('.board')
 
 /*----- state variables -----*/
 let points;
