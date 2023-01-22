@@ -31,10 +31,10 @@ const BACK_CARD = [
 ]
 
 /*----- state variables -----*/
-let points;
-let timer;
-let board;
-let win;
+let points; //1 point per matched pair 
+let timer; // 2:00 timer per game
+let board; //
+let win; //All cards matched 
 
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelectorAll('section > img');
@@ -45,7 +45,7 @@ const playAgainBtn = document.querySelector('button');
 //playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
-init ();
+init (); //initialized all state then call render
 
 function init () {
     //initialize board with shuffled cards(2 cards per image)
@@ -54,17 +54,18 @@ function init () {
         console.log(board);
     // timer = //2:00min;
     // points = 0;
-    // render ();
+    render ();
 }
 
 function render () {
     renderBoard ();
-    //renderControls (); //hide the ui button//
+    renderControls ();
 }
 
-function renderBoard () {
-
-}
+// function renderBoard () {
+//     document.getElementById('board').childNodes.src = BACK_CARD;
+//     render ();
+// }
 
 // function renderControls () {
 //     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
