@@ -23,7 +23,11 @@ body {
 #board > div {
     height: 100px;
     width: 100px;
-    border: solid yellow;
+    border: solid rgb(7, 7, 7);
+}
+#board > div:hover {
+    border: solid black;
+    transform: scale(1.2);
 }
 #points {
     display: flex;
