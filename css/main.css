@@ -37,6 +37,7 @@ body {
     margin: 1vmin 3vmin;
     justify-content: center;
     background-color: rgb(206, 99, 63); 
+    background: linear-gradient(rgb(206, 99, 63), rgb(67, 19, 33));
     border-radius: 20%;
     height: 225px;
     width: 200px;
