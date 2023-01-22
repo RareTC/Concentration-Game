@@ -63,7 +63,7 @@ function render () {
 }
 
 // function renderBoard () {
-//     document.getElementById('board').childNodes.src = BACK_CARD;
+//     document.getElementById('board').childNodes.src = `${BACK_CARD}`;
 //     render ();
 // }
 
