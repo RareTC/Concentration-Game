@@ -34,12 +34,15 @@ const BACK_CARD = [
 let points;
 let timer;
 let board;
+let win;
 
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelectorAll('section > img');
+const playAgainBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
-
+//document.getElementById('board')addEventListener('click', cardPick);
+//playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init ();
@@ -50,7 +53,7 @@ function init () {
     //then verify the board has 2 of each, shuffled
         console.log(board);
     timer = //2:00min;
-    points = '0';
+    points = 0;
     // render ();
 }
 
