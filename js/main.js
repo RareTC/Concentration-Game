@@ -1,15 +1,30 @@
 /*----- constants -----*/
 const CARDS = [
     {
-        name: 'back'
-        img: 'images/back.png'
-    }
-    {}
-    {}
-    {}
-    {}
-    {}
-    {}
+        img:'images/air.png',
+        matched: false
+    },
+    {
+        img:'images/appa.png',
+        matched: false
+    },
+    {
+        img:'images/earth.png',
+        matched: false
+    },
+    {
+        img:'images/fire.png',
+        matched: false
+    },
+    {
+        img:'images/group.png',
+        matched: false
+    },
+    {
+        img:'images/water.png',
+        matched: false
+    },
+  
 ]
 const BOARD = document.querySelector.apply('.board')
 
@@ -28,7 +43,7 @@ let board;
 init ();
 
 function init () {
-    board = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    board = getShuffledTiles()
     timer = //2:00min;
     points = '0';
     render ();
