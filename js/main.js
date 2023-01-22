@@ -57,6 +57,20 @@ function init () {
     // render ();
 }
 
+function render () {
+    renderBoard ();
+    //renderControls (); //hide the ui button//
+}
+
+function renderBoard () {
+
+}
+
+// function renderControls () {
+//     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+// }
+
+
 // function getShuffledCards() {
 //     const tempCards = [];
 //     //array to be returned
