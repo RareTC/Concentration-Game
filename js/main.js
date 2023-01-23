@@ -59,13 +59,14 @@ function init () {
 
 function render () {
     renderBoard ();
-    renderControls ();
+    // renderControls ();
 }
 
-// function renderBoard () {
-//     document.getElementById('board').childNodes.src = `${BACK_CARD}`;
-//     render ();
-// }
+function renderBoard () {
+    cardImgEls.forEach(function(imgEl) {
+        cardImgEls.src = BACK_CARD;
+    });
+}
 
 // function renderControls () {
 //     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
