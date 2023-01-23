@@ -54,8 +54,9 @@ const boardEl = document.getElementById('board');
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
     function handleClick(evt) {
-        
+        // const cardIdx = parseInt(evt.target.id.replace(cardImgEl));
         console.log(evt.target)
+        render();
     }
 //document.getElementById('')addEventListener('click', cardPick);
 //playAgainBtn.addEventListener('click', init);
