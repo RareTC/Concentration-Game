@@ -27,8 +27,12 @@ const FACE_CARDS = [
   
 ]
 const BACK_CARD = [
-    'images/background.png'
+    {
+        img: 'images/background.png'
+    }
+    
 ]
+
 
 /*----- state variables -----*/
 let points; //1 point per matched pair 
@@ -64,7 +68,7 @@ function render () {
 
 function renderBoard () {
     cardImgEls.forEach(function(imgEl) {
-        cardImgEls.src = BACK_CARD;
+        cardImgEls.src = BACK_CARD
     });
 }
 
