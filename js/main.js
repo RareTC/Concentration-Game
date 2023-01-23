@@ -43,6 +43,7 @@ let win; //All cards matched
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelectorAll('section > img');
 const playAgainBtn = document.querySelector('button');
+const boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
 //document.getElementById('board')addEventListener('click', cardPick);
