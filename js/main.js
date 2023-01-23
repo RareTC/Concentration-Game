@@ -32,13 +32,12 @@ const FACE_CARDS = [
     },
   
 ]
-const BACK_CARD = [
+const BACK_CARD = 
     {
         img: 'images/background.png',
         name: 'background'
     }
     
-]
 
 
 /*----- state variables -----*/
@@ -46,9 +45,12 @@ let points; //1 point per matched pair
 let timer; // 2:00 timer per game
 let board; //
 let win; //All cards matched 
+let cards = [];
+//first click
+//second click
 
 /*----- cached elements  -----*/
-const cardImgEls = document.querySelectorAll('section > img');
+const cardImgEls = document.querySelector('section > img');
 const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
 
@@ -75,11 +77,20 @@ function render () {
 }
 
 function renderBoard () {
-    cardImgEls.forEach(function(imgEl) {
-        cardImgEls.src = BACK_CARD.img;
-        console.log (renderBoard);
+    board.forEach(function(imgEl, idx) {
+        const cardImgEl = document.getElementById(idx)
+        cardImgEl.src = BACK_CARD.img;
+        console.log (cardImgEl);
+        console.log(imgEl);
+        
     });
 }
+// if (!imgEl.matched) {
+
+// } else {
+
+// }
+
 
 // function renderControls () {
 //     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
