@@ -46,8 +46,9 @@ let timer; // 2:00 timer per game
 let board; //
 let win; //All cards matched 
 let cards = [];
-//first click
-//second click
+let firstClick;
+let secondClick;
+
 
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelector('section > img');
