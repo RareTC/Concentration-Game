@@ -2,33 +2,40 @@
 const FACE_CARDS = [
     {
         img:'images/air.png',
-        matched: false
+        matched: false,
+        name: 'air'
     },
     {
         img:'images/appa.png',
-        matched: false
+        matched: false,
+        name: 'appa'
     },
     {
         img:'images/earth.png',
-        matched: false
+        matched: false,
+        name: 'earth'
     },
     {
         img:'images/fire.png',
-        matched: false
+        matched: false,
+        name: 'fire'
     },
     {
         img:'images/group.png',
-        matched: false
+        matched: false,
+        name: 'group'
     },
     {
         img:'images/water.png',
-        matched: false
+        matched: false,
+        name: 'water'
     },
   
 ]
 const BACK_CARD = [
     {
-        img: 'images/background.png'
+        img: 'images/background.png',
+        name: 'background'
     }
     
 ]
