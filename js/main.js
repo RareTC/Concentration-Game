@@ -76,7 +76,8 @@ function render () {
 
 function renderBoard () {
     cardImgEls.forEach(function(imgEl) {
-        cardImgEls.src = BACK_CARD
+        cardImgEls.src = BACK_CARD.img;
+        console.log (renderBoard);
     });
 }
 
