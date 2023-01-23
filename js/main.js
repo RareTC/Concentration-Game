@@ -52,7 +52,12 @@ const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
-//document.getElementById('board')addEventListener('click', cardPick);
+boardEl.addEventListener('click', handleClick);
+    function handleClick(evt) {
+        
+        console.log(evt.target)
+    }
+//document.getElementById('')addEventListener('click', cardPick);
 //playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -86,7 +91,6 @@ function renderBoard () {
 //--After event listener for click to save first and second click argument should check if matched --/
 //--If match make both cards unclickable and fully transparent--//
 //--If two clicks and no match, return code to previous and flip back over --/
-
 // if (!imgEl.matched) {
 
 // } else {
