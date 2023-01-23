@@ -37,9 +37,6 @@ const BACK_CARD =
         img: 'images/background.png',
         name: 'background'
     }
-    
-
-
 /*----- state variables -----*/
 let points; //1 point per matched pair 
 let timer; // 2:00 timer per game
@@ -48,7 +45,6 @@ let win; //All cards matched
 let cards = [];
 let firstClick;
 let secondClick;
-
 
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelector('section > img');
@@ -86,15 +82,15 @@ function renderBoard () {
         
     });
 }
+
+//--After event listener for click to save first and second click argument should check if matched --/
+//--If match make both cards unclickable and fully transparent--//
+//--If two clicks and no match, return code to previous and flip back over --/
+
 // if (!imgEl.matched) {
 
 // } else {
 
-// }
-
-
-// function renderControls () {
-//     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 // }
 
 
@@ -113,3 +109,7 @@ function getShuffledCards() {
     }
     return cards;
 }
+
+// function renderControls () {
+//     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+// }
