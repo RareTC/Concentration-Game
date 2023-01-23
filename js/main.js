@@ -40,9 +40,8 @@ const BACK_CARD =
 /*----- state variables -----*/
 let points; //1 point per matched pair 
 let timer; // 2:00 timer per game
-let board; //
+let cards; //
 let win; //All cards matched 
-let cards = [];
 let firstClick;
 let secondClick;
 
@@ -53,11 +52,6 @@ const boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-    function handleClick(evt) {
-        // const cardIdx = parseInt(evt.target.id.replace(cardImgEl));
-        console.log(evt.target)
-        render();
-    }
 //document.getElementById('')addEventListener('click', cardPick);
 //playAgainBtn.addEventListener('click', init);
 
@@ -66,9 +60,9 @@ init (); //initialized all state then call render
 
 function init () {
     //initialize board with shuffled cards(2 cards per image)
-    board = getShuffledCards();
+    cards = getShuffledCards();
     //then verify the board has 2 of each, shuffled
-        console.log(board);
+    console.log(cards);
     // timer = //2:00min;
     // points = 0;
     render ();
@@ -76,17 +70,31 @@ function init () {
 
 function render () {
     renderBoard ();
+
     // renderControls ();
 }
 
 function renderBoard () {
-    board.forEach(function(imgEl, idx) {
+    cards.forEach(function(imgEl, idx) {
         const cardImgEl = document.getElementById(idx)
-        cardImgEl.src = BACK_CARD.img;
+        const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD.img;
+        cardImgEl.src = src;
         console.log (cardImgEl);
         console.log(imgEl);
-        
+        console.log(firstClick);
     });
+}
+function handleClick(evt) {
+    let cardIdx = parseInt(evt.target.id)
+    let card = cards[cardIdx];
+    if (!firstClick) {
+        firstClick = card
+        render();
+    }
+
+    console.log(cardIdx)
+   
+    render();
 }
 
 //--After event listener for click to save first and second click argument should check if matched --/
@@ -94,9 +102,6 @@ function renderBoard () {
 //--If two clicks and no match, return code to previous and flip back over --/
 // if (!imgEl.matched) {
 
-// } else {
-
-// }
 
 
 function getShuffledCards() {
