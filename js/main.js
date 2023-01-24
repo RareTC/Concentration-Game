@@ -37,7 +37,7 @@ const BACK_CARD = 'images/background.png'
     
 /*----- state variables -----*/
 let points; //1 point per matched pair 
-let timer; // 2:00 timer per game
+let countdown; // 2:00 timer per game
 let cards; //
 let win; //All cards matched 
 let firstClick;
@@ -52,7 +52,7 @@ const countdownEl = document.getElementById('countdown');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-//playAgainBtn.addEventListener('click', init);
+playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init (); //initialized all state then call render
@@ -69,15 +69,14 @@ function init () {
 }
 
 function render () {
+    renderCountDown ();
     renderBoard ();
-    renderTimer ();
     // renderControls ();
 }
 
-function renderTimer () {
+function renderCountDown () {
     let count = 120
     countdownEl.innerText = count;
-    // timerEl.style.visbility = 'visible';
     let timerId = setInterval(function() {
         count--;
         if (count) {
@@ -85,7 +84,7 @@ function renderTimer () {
         } else {
             clearInterval (timerId);
         }
-    }, 1000);
+    },1000);
 }
 
 function renderBoard () {
@@ -129,7 +128,7 @@ function handleClick(evt) {
             secondClick = null
             ignoreClick = false;
             render();
-        }, 1500);
+        }, 2000);
         //make a set time out before setting first and second clicks to false then call render
     }
     //Reset clicks back to null

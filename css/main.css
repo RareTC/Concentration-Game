@@ -55,16 +55,6 @@ button {
     background-color: #808080;
     color: rgb(179, 91, 68);    
 }
-
-.timer {
-    visibility: hidden;
-    height: 10vmin;
-    width: 10vmin;
-    border: 1vmin solid grey;
-    border-radius: 50%;
-    font-size: 5vmin;
-    padding: 1vmin;
-    justify-self: center;
-    align-self: center;
-    color: purple;
-  }
+#countdown {
+    font-size: 3vmin;
+}
