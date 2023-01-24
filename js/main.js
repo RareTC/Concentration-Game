@@ -39,7 +39,7 @@ const BACK_CARD = 'images/background.png'
 let points; //1 point per matched pair 
 let countdown; // 2:00 timer per game
 let cards; //
-let win; //All cards matched 
+let winner; //All cards matched 
 let firstClick;
 let secondClick;
 let ignoreClick;
@@ -59,24 +59,26 @@ playAgainBtn.addEventListener('click', init);
 init (); //initialized all state then call render
 
 function init () {
-    //initialize board with shuffled cards(2 cards per image)
+    //this shuffles cards with 2 matches 
     cards = getShuffledCards();
     firstClick = null;
     secondClick = null;
     ignoreClick = false;
+    winner = null;
     // countdown = renderCountDown;
     // points = 0;
+    renderCountDown ();
+
     render ();
 }
 
 function render () {
-    renderCountDown ();
     renderBoard ();
     // renderControls ();
 }
 
 function renderCountDown () {
-    let count = 10
+    let count = 120
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
         count--;
@@ -116,7 +118,7 @@ function handleClick(evt) {
         secondClick.matched = true
         firstClick = null
         secondClick = null
-        render();
+        // render();
     } 
     if (firstClick && secondClick) {
         console.log(firstClick, secondClick);
@@ -159,4 +161,11 @@ function renderControls () {
 
 function getWinner () {
     console.log("Inside Winner Function");
+    const checkWinner = cards.every(function(card) {
+        return card.matched === true;
+    });
+    console.log(checkWinner);
+    if (checkWinner === true) {
+        console.log('You win');
+    }
 }
