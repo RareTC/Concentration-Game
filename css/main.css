@@ -56,5 +56,9 @@ button {
     color: rgb(179, 91, 68);    
 }
 #countdown {
-    font-size: 3vmin;
+    font-size: 3vmax;
+}
+
+#points .points {
+    font-size: 3vmax;
 }
