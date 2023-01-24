@@ -50,11 +50,9 @@ const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
 const countdownEl = document.getElementById('countdown');
 const gameResultEl = document.getElementById('gameresult');
-const playNowbtn = document.getElementById('starbutton');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-playNowbtn.addEventListener('click', renderCountDown);
 playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
