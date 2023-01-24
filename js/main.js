@@ -64,7 +64,7 @@ function init () {
     firstClick = null;
     secondClick = null;
     ignoreClick = false;
-    // timer = ?
+    // countdown = renderCountDown;
     // points = 0;
     render ();
 }
@@ -83,8 +83,8 @@ function renderCountDown () {
         if (count) {
             countdownEl.innerText = count;
         } else {
-            clearInterval(count === 0)
-
+            clearInterval(timerId)
+            gameResultEl.innerText = 'Time is up! You Lose'
         }
     },1000);
 }
@@ -137,13 +137,6 @@ function handleClick(evt) {
     render()
 }
 
-//--After event listener for click to save first and second click argument should check if matched --/
-//--If match make both cards unclickable and fully transparent--//
-//--If two clicks and no match, return code to previous and flip back over --/
-// if (!imgEl.matched) {
-
-
-
 function getShuffledCards() {
     const tempCards = [];
     //array to be returned
@@ -162,4 +155,8 @@ function getShuffledCards() {
 
 function renderControls () {
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+}
+
+function getWinner () {
+    console.log("Inside Winner Function");
 }
