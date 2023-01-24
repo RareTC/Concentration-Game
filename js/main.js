@@ -51,7 +51,6 @@ const boardEl = document.getElementById('board');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-//document.getElementById('')addEventListener('click', cardPick);
 //playAgainBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -61,6 +60,7 @@ function init () {
     //initialize board with shuffled cards(2 cards per image)
     cards = getShuffledCards();
     firstClick = null;
+    secondClick = null;
     ignoreClick = false;
     //then verify the board has 2 of each, shuffled
     // timer = //2:00min;
@@ -91,27 +91,35 @@ function renderBoard () {
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
     const card = cards[cardIdx];
-    if (!firstClick) {
-        firstClick = card
-        render();
-        console.log(firstClick, 'this is first click')
-    }
-    else {
-        if (isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
-    }
-    secondClick = card
-    console.log(secondClick, 'this is second click')
-    render();
-    if (firstClick.img === secondClick.img) {
-    firstClick.matched = secondClick.matched = true
-    firstClick = null 
-    secondClick = null
-    } 
-    else {
+    if (isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
+    if (firstClick) secondClick = card
+    if (!firstClick) firstClick = card
+    card.matched = true;
+
+    if (firstClick?.img === secondClick?.img) {
+        firstClick.matched =true
+        secondClick.matched = true
         firstClick = null
+        secondClick = null
+        render();
+    } 
+    if (firstClick && secondClick) {
+        console.log(firstClick, secondClick);
+        ignoreClick = true;
+        //set time out starts here 
+        setTimeout(function(){
+
+            firstClick.matched = false;
+            secondClick.matched = false;
+            firstClick = null
+            secondClick = null
+            ignoreClick = false;
+            render();
+        }, 3000);
+        //make a set time out before setting first and second clicks to false then call render
     }
     //Reset clicks back to null
- render();
+    render()
 }
 
 //--After event listener for click to save first and second click argument should check if matched --/
