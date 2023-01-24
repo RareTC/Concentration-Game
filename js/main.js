@@ -67,17 +67,18 @@ function init () {
     winner = null;
     // countdown = renderCountDown;
     // points = 0;
-    renderCountDown ();
+    startCountDown();
 
-    render ();
+    render();
 }
 
-function render () {
-    renderBoard ();
-    // renderControls ();
+function render() {
+    renderBoard();
+    playAgainBtn.disabled = !winner;
+    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
 }
 
-function renderCountDown () {
+function startCountDown() {
     let count = 120
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
@@ -86,12 +87,14 @@ function renderCountDown () {
             countdownEl.innerText = count;
         } else {
             clearInterval(timerId)
+            timerId = winner;
             gameResultEl.innerText = 'Time is up! You Lose'
+            render();
         }
     },1000);
 }
 
-function renderBoard () {
+function renderBoard() {
     cards.forEach(function(imgEl, idx) {
         const cardImgEl = document.getElementById(idx)
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
@@ -108,7 +111,7 @@ function renderBoard () {
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
     const card = cards[cardIdx];
-    if (isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
+    if (winner || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
     if (firstClick) secondClick = card
     if (!firstClick) firstClick = card
     card.matched = true;
@@ -155,11 +158,7 @@ function getShuffledCards() {
     return cards;
 }
 
-function renderControls () {
-    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
-}
-
-function getWinner () {
+function getWinner() {
     console.log("Inside Winner Function");
     const checkWinner = cards.every(function(card) {
         return card.matched === true;
