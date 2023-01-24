@@ -48,6 +48,7 @@ let ignoreClick;
 const cardImgEls = document.querySelector('section > img');
 const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
+const timerEl = document.getElementsByClassName('timer');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
@@ -63,15 +64,29 @@ function init () {
     secondClick = null;
     ignoreClick = false;
     //then verify the board has 2 of each, shuffled
-    // timer = //2:00min;
+    timer = renderTimer;
     // points = 0;
     render ();
 }
 
 function render () {
     renderBoard ();
-
+    renderTimer ();
     // renderControls ();
+}
+
+function renderTimer () {
+    let count = 120
+    timerEl.innerText = count;
+    // timerEl.style.visbility = 'visible';
+    let timerId = setInterval(function() {
+        count--;
+        if (count) {
+            timerEl.innerText = count;
+        } else {
+            clearInterval (timerId);
+        }
+    }, 1000);
 }
 
 function renderBoard () {
@@ -115,7 +130,7 @@ function handleClick(evt) {
             secondClick = null
             ignoreClick = false;
             render();
-        }, 3000);
+        }, 1500);
         //make a set time out before setting first and second clicks to false then call render
     }
     //Reset clicks back to null
