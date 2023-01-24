@@ -48,7 +48,7 @@ let ignoreClick;
 const cardImgEls = document.querySelector('section > img');
 const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
-const timerEl = document.getElementsByClassName('timer');
+const countdownEl = document.getElementById('countdown');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
@@ -63,8 +63,7 @@ function init () {
     firstClick = null;
     secondClick = null;
     ignoreClick = false;
-    //then verify the board has 2 of each, shuffled
-    timer = renderTimer;
+    // timer = ?
     // points = 0;
     render ();
 }
@@ -77,12 +76,12 @@ function render () {
 
 function renderTimer () {
     let count = 120
-    timerEl.innerText = count;
+    countdownEl.innerText = count;
     // timerEl.style.visbility = 'visible';
     let timerId = setInterval(function() {
         count--;
         if (count) {
-            timerEl.innerText = count;
+            countdownEl.innerText = count;
         } else {
             clearInterval (timerId);
         }
