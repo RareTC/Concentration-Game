@@ -75,14 +75,15 @@ function render () {
 }
 
 function renderCountDown () {
-    let count = 120
+    let count = 10
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
         count--;
         if (count) {
             countdownEl.innerText = count;
         } else {
-            clearInterval (timerId);
+            clearInterval(count === 0)
+            
         }
     },1000);
 }
@@ -158,6 +159,6 @@ function getShuffledCards() {
     return cards;
 }
 
-// function renderControls () {
-//     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
-// }
+function renderControls () {
+    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+}
