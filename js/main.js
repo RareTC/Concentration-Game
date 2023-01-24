@@ -49,6 +49,7 @@ const cardImgEls = document.querySelector('section > img');
 const playAgainBtn = document.querySelector('button');
 const boardEl = document.getElementById('board');
 const countdownEl = document.getElementById('countdown');
+const gameResultEl = document.getElementById('gameresult');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
@@ -83,7 +84,7 @@ function renderCountDown () {
             countdownEl.innerText = count;
         } else {
             clearInterval(count === 0)
-            
+
         }
     },1000);
 }
