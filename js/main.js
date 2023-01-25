@@ -76,6 +76,9 @@ function render() {
     checkWinner(); 
     renderBoard();
 }
+// function boardClickable() {
+
+// }
 
 function startCountDown() {
     startBtn.style.visibility = 'hidden';
