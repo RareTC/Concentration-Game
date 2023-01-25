@@ -65,10 +65,7 @@ function init () {
     secondClick = null;
     ignoreClick = false;
     winner = null;
-    // countdown = renderCountDown;
-    // points = 0;
     startCountDown();
-
     render();
 }
 
@@ -121,7 +118,7 @@ function handleClick(evt) {
     } 
     if (firstClick && secondClick) {
         ignoreClick = true;
-    
+        console.log ('not a match');
         //set time out starts here 
         setTimeout(function(){
 
@@ -144,6 +141,7 @@ function checkWinner(){
     });
     if (checkWinner === true) {
         gameResultEl.innerText = 'You won!';
+        winner = 'W'
     return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
