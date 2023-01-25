@@ -80,7 +80,7 @@ function render() {
 }
 
 function startCountDown() {
-    let count = 2
+    let count = 120
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
         count--; 
