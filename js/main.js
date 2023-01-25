@@ -35,38 +35,34 @@ const FACE_CARDS = [
 const BACK_CARD = 'images/background.png'
     
 /*----- state variables -----*/
-let wrong; //1 point per 
-let timerId; // 2:00 timer per game
+let wrong;
+let timerId; 
 let cards; 
-let winner; //All cards matched before 2 min and before 5 wrong guesses
-//L out of time W is a win O is out of guesses, null is ongoing game 
 let firstClick;
 let secondClick;
 let ignoreClick;
 let gameStatus;
 
 /*----- cached elements  -----*/
-const cardImgEls = document.querySelector('section > img');
-const playAgainBtn = document.querySelector('.secondbutton');
 const boardEl = document.getElementById('board');
+const cardImgEls = document.querySelector('section > img');
 const countdownEl = document.getElementById('countdown');
 const gameResultEl = document.getElementById('gameresult');
 const wrongEl = document.querySelector('.wrong');
-const firstPlayBtn = document.querySelector('.firstbutton');
+const startBtn = document.querySelector('.startbutton');
+const resetBtn = document.querySelector('.resetbutton');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-playAgainBtn.addEventListener('click', startCountDown);
-firstPlayBtn.addEventListener('click',(init));
+startBtn.addEventListener('click', startCountDown);
+resetBtn.addEventListener('click',(init));
 /*----- functions -----*/
- //initialized all state then call render
 init();
 function init() {
     cards = getShuffledCards();
     firstClick = null;
     secondClick = null;
     ignoreClick = false;
-    winner = null;
     wrong = 0;
     gameStatus = false;
     render();
@@ -78,7 +74,7 @@ function render() {
 }
 
 function startCountDown() {
-    playAgainBtn.style.visibility = 'hidden';
+    startBtn.style.visibility = 'hidden';
     let count = 120
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
@@ -95,7 +91,7 @@ function startCountDown() {
 }
 
 function renderBoard() {
-    firstPlayBtn.style.visibility = gameStatus === 'done' ? 'visible' : 'hidden';
+    resetBtn.style.visibility = gameStatus === 'done' ? 'visible' : 'hidden';
     cards.forEach(function(imgEl, idx) {
         const cardImgEl = document.getElementById(idx)
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
