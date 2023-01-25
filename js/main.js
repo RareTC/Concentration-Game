@@ -35,7 +35,7 @@ const FACE_CARDS = [
 const BACK_CARD = 'images/background.png'
     
 /*----- state variables -----*/
-let points; //1 point per matched pair 
+let wrong; //1 point per 
 let timerId; // 2:00 timer per game
 let cards; 
 let winner; //All cards matched before 2 min and before 5 wrong guesses
@@ -43,40 +43,42 @@ let winner; //All cards matched before 2 min and before 5 wrong guesses
 let firstClick;
 let secondClick;
 let ignoreClick;
+let gameStatus;
 
 /*----- cached elements  -----*/
 const cardImgEls = document.querySelector('section > img');
-const playAgainBtn = document.querySelector('button');
+const playAgainBtn = document.querySelector('.secondbutton');
 const boardEl = document.getElementById('board');
 const countdownEl = document.getElementById('countdown');
 const gameResultEl = document.getElementById('gameresult');
+const wrongEl = document.querySelector('.wrong');
+const firstPlayBtn = document.querySelector('.firstbutton');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-playAgainBtn.addEventListener('click', init);
-
+playAgainBtn.addEventListener('click', startCountDown);
+firstPlayBtn.addEventListener('click',(init));
 /*----- functions -----*/
-init (); //initialized all state then call render
-
-function init () {
-    //this shuffles cards with 2 matches 
+ //initialized all state then call render
+init();
+function init() {
     cards = getShuffledCards();
     firstClick = null;
     secondClick = null;
     ignoreClick = false;
     winner = null;
-    startCountDown();
+    wrong = 0;
+    gameStatus = false;
     render();
 }
 
 function render() {
-    renderBoard();
-    // playAgainBtn.disabled = !winner;
-    // playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
     checkWinner(); 
+    renderBoard();
 }
 
 function startCountDown() {
+    playAgainBtn.style.visibility = 'hidden';
     let count = 120
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
@@ -84,7 +86,7 @@ function startCountDown() {
         checkWinner();
         if (count) {
             countdownEl.innerText = count;
-        } else {
+        } if (gameStatus === 'done') { 
             clearInterval(timerId)
             countdownEl.innerText = count;
             render();
@@ -93,35 +95,33 @@ function startCountDown() {
 }
 
 function renderBoard() {
+    firstPlayBtn.style.visibility = gameStatus === 'done' ? 'visible' : 'hidden';
     cards.forEach(function(imgEl, idx) {
         const cardImgEl = document.getElementById(idx)
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
         cardImgEl.src = src;
     });
+    wrongEl.innerText = `${wrong}/5`;
 }
     
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
     const card = cards[cardIdx];
-    if (winner || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
+    if (gameStatus === 'done' || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
     if (firstClick) secondClick = card
     if (!firstClick) firstClick = card
     card.matched = true;
-
     if (firstClick?.img === secondClick?.img) {
         firstClick.matched =true
         secondClick.matched = true
         firstClick = null
         secondClick = null
-        // render();
-        //this is where cards match
     } 
     if (firstClick && secondClick) {
         ignoreClick = true;
+        wrong ++; 
         console.log ('not a match');
-        //set time out starts here 
-        setTimeout(function(){
-
+        setTimeout(function() {
             firstClick.matched = false;
             secondClick.matched = false;
             firstClick = null
@@ -129,9 +129,7 @@ function handleClick(evt) {
             ignoreClick = false;
             render();
         }, 2000);
-        //make a set time out before setting first and second clicks to false then call render
     }
-    //Reset clicks back to null
     render()
 }
 
@@ -141,18 +139,19 @@ function checkWinner(){
     });
     if (checkWinner === true) {
         gameResultEl.innerText = 'You won!';
-        winner = 'W'
+        gameStatus = 'done';
     return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
         return console.log('you lose')
+    } else if (wrong === 5) {
+        gameResultEl.innerText = "You are out of guesses";
+        gameStatus = 'done';
     }
 }
 function getShuffledCards() {
     const tempCards = [];
-    //array to be returned
     const cards = [];
-    //copy each source card twice and add to tempCards
     FACE_CARDS.forEach(function(card) {
         tempCards.push({...card}, {...card});
     });
