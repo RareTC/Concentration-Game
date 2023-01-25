@@ -74,30 +74,22 @@ function init () {
 
 function render() {
     renderBoard();
-    playAgainBtn.disabled = !winner;
-    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
-    if (winner)
-    if (winner === 'L') {
-        gameResultEl.innerText = 'You are out of time!';
-    } else if (winner === 'W') {
-        gameResultEl.innerText = "You won!";
-    } else {
-        gameResultEl.innerText = '____ guesses left!';
-    }
-
+    // playAgainBtn.disabled = !winner;
+    // playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    checkWinner(); 
 }
 
 function startCountDown() {
-    let count = 120
+    let count = 2
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
-        count--;
+        count--; 
+        checkWinner();
         if (count) {
             countdownEl.innerText = count;
         } else {
             clearInterval(timerId)
             countdownEl.innerText = count;
-            winner = 'L';
             render();
         }
     },1000);
@@ -110,12 +102,6 @@ function renderBoard() {
         cardImgEl.src = src;
     });
 }
-// if (imgEl.matched || firstClick === imgEl || secondClick == imgEl){
-//     src = imgEl.img
-// } else {
-//     src = BACK_CARD.img
-// }
-
     
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
@@ -131,10 +117,11 @@ function handleClick(evt) {
         firstClick = null
         secondClick = null
         // render();
+        //this is where cards match
     } 
     if (firstClick && secondClick) {
-        console.log(firstClick.name, secondClick.name);
         ignoreClick = true;
+    
         //set time out starts here 
         setTimeout(function(){
 
@@ -151,7 +138,18 @@ function handleClick(evt) {
     render()
 }
 
-
+function checkWinner(){
+    const checkWinner = cards.every(function(card){
+        return card.matched===true;
+    });
+    if (checkWinner === true) {
+        gameResultEl.innerText = 'You won!';
+    return console.log('you win')
+    } else if (countdownEl.innerText === '0'){
+        gameResultEl.innerText = 'You are out of time!';
+        return console.log('you lose')
+    }
+}
 function getShuffledCards() {
     const tempCards = [];
     //array to be returned
@@ -167,23 +165,3 @@ function getShuffledCards() {
     }
     return cards;
 }
-
-// function checkWinner() {
-//     console.log("Inside Winner Function");
-//     const checkWinner = cards.every(function(card) {
-//         if (card.name === card.name ** timerId !== 0) {
-//             console.log('You are a winner');
-//         }
-//         else {
-//             console.log ('You lose');
-//         }
-//     });
-// }
-    
-    //     return card.name === card.name;
-    // });
-    // console.log(checkWinner);
-    // if (checkWinner === true) {
-    //     console.log('You win');
-    // }
-    // render();
