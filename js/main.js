@@ -33,13 +33,12 @@ const FACE_CARDS = [
   
 ]
 const BACK_CARD = 'images/background.png'
-        
     
 /*----- state variables -----*/
 let points; //1 point per matched pair 
-let countdown; // 2:00 timer per game
-let cards; //
-let winner; //All cards matched 
+let timerId; // 2:00 timer per game
+let cards; 
+let winner; //All cards matched before 2 min and before 5 wrong guesses
 let firstClick;
 let secondClick;
 let ignoreClick;
@@ -76,6 +75,14 @@ function render() {
     renderBoard();
     playAgainBtn.disabled = !winner;
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    if (winner === 'L') {
+        gameResultEl.innerText = 'You are out of time!';
+    } else if (winner === 'W') {
+        gameResultEl.innerText = "You won!";
+    } else {
+        gameResultEl.innerText = '____ guesses left!';
+    }
+
 }
 
 function startCountDown() {
@@ -87,8 +94,9 @@ function startCountDown() {
             countdownEl.innerText = count;
         } else {
             clearInterval(timerId)
-            timerId = winner;
-            gameResultEl.innerText = 'Time is up! You Lose'
+            countdownEl.innerText = count;
+            winner = 'L';
+            // gameResultEl.innerText = 'Time is up! You Lose'
             render();
         }
     },1000);
@@ -124,7 +132,7 @@ function handleClick(evt) {
         // render();
     } 
     if (firstClick && secondClick) {
-        console.log(firstClick, secondClick);
+        console.log(firstClick.name, secondClick.name);
         ignoreClick = true;
         //set time out starts here 
         setTimeout(function(){
@@ -158,13 +166,22 @@ function getShuffledCards() {
     return cards;
 }
 
-function getWinner() {
-    console.log("Inside Winner Function");
-    const checkWinner = cards.every(function(card) {
-        return card.matched === true;
-    });
-    console.log(checkWinner);
-    if (checkWinner === true) {
-        console.log('You win');
-    }
-}
+// function checkWinner() {
+//     console.log("Inside Winner Function");
+//     const checkWinner = cards.every(function(card) {
+//         if (card.name === card.name ** timerId !== 0) {
+//             console.log('You are a winner');
+//         }
+//         else {
+//             console.log ('You lose');
+//         }
+//     });
+// }
+    
+    //     return card.name === card.name;
+    // });
+    // console.log(checkWinner);
+    // if (checkWinner === true) {
+    //     console.log('You win');
+    // }
+    // render();
