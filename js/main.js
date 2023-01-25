@@ -39,6 +39,7 @@ let points; //1 point per matched pair
 let timerId; // 2:00 timer per game
 let cards; 
 let winner; //All cards matched before 2 min and before 5 wrong guesses
+//L out of time W is a win O is out of guesses, null is ongoing game 
 let firstClick;
 let secondClick;
 let ignoreClick;
@@ -75,6 +76,7 @@ function render() {
     renderBoard();
     playAgainBtn.disabled = !winner;
     playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    if (winner)
     if (winner === 'L') {
         gameResultEl.innerText = 'You are out of time!';
     } else if (winner === 'W') {
@@ -96,7 +98,6 @@ function startCountDown() {
             clearInterval(timerId)
             countdownEl.innerText = count;
             winner = 'L';
-            // gameResultEl.innerText = 'Time is up! You Lose'
             render();
         }
     },1000);
@@ -149,6 +150,7 @@ function handleClick(evt) {
     //Reset clicks back to null
     render()
 }
+
 
 function getShuffledCards() {
     const tempCards = [];
