@@ -55,7 +55,10 @@ const resetBtn = document.querySelector('.resetbutton');
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
 startBtn.addEventListener('click', startCountDown);
-resetBtn.addEventListener('click', wrapperFunction);
+resetBtn.addEventListener('click', function() {
+    init();
+    startCountDown();
+});
 /*----- functions -----*/
 init();
 function init() {
@@ -65,17 +68,13 @@ function init() {
     ignoreClick = false;
     wrong = 0;
     gameStatus = false;
+    gameResultEl.innerText = '';
     render();
 }
 
 function render() {
     checkWinner(); 
     renderBoard();
-}
-function wrapperFunction() {
-    init();
-    startCountDown();
-    gameResultEl.innerText = '';
 }
 
 function startCountDown() {
