@@ -51,6 +51,7 @@ const gameResultEl = document.getElementById('gameresult');
 const wrongEl = document.querySelector('.wrong');
 const startBtn = document.querySelector('.startbutton');
 const resetBtn = document.querySelector('.resetbutton');
+const backMusic = new Audio ('sound/backmusic.mp3');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
@@ -77,11 +78,10 @@ function render() {
     checkWinner(); 
     renderBoard();
 }
-// function boardClickable() {
-
-// }
-
 function startCountDown() {
+    backMusic.loop=true;
+    backMusic.play();
+    backMusic.volume = 0.2;
     firstLoad = false;
     startBtn.style.visibility = 'hidden';
     let count = 120
