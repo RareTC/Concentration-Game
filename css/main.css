@@ -32,8 +32,6 @@ body {
     grid-template-columns: repeat(3, auto);
 }
 #board > img {
-    height: 100px;
-    width: 100px;
     border: solid rgb(7, 7, 7);
     margin: 1vmin 3vmin;
     justify-content: center;
