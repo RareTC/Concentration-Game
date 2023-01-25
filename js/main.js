@@ -62,6 +62,7 @@ resetBtn.addEventListener('click', function() {
 /*----- functions -----*/
 init();
 function init() {
+    let firstLoad = true;
     cards = getShuffledCards();
     firstClick = null;
     secondClick = null;
@@ -81,6 +82,7 @@ function render() {
 // }
 
 function startCountDown() {
+    firstLoad = false;
     startBtn.style.visibility = 'hidden';
     let count = 120
     countdownEl.innerText = count;
@@ -110,7 +112,7 @@ function renderBoard() {
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
     const card = cards[cardIdx];
-    if (gameStatus === 'done' || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick) return;
+    if (gameStatus === 'done' || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick || firstLoad) return;
     if (firstClick) secondClick = card
     if (!firstClick) firstClick = card
     card.matched = true;
