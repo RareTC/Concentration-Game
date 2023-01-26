@@ -52,13 +52,24 @@ const wrongEl = document.querySelector('.wrong');
 const startBtn = document.querySelector('.startbutton');
 const resetBtn = document.querySelector('.resetbutton');
 const backMusic = new Audio ('sound/backmusic.mp3');
+const replayNoise = new Audio ('sound/replaynoise.mp3');
+const winNoise = new Audio ('sound/winnoise.mp3');
+const wrongNoise = new Audio ('sound/wrongnoise.mp3');
+const startNoise = new Audio ('sound/startnoise.mp3');
+
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-startBtn.addEventListener('click', startCountDown);
+startBtn.addEventListener('click', function(){
+    startCountDown();
+    startNoise.play();
+    startNoise.volume = 0.6;
+});
 resetBtn.addEventListener('click', function() {
     init();
     startCountDown();
+    replayNoise.play();
+    replayNoise.volume = 0.6;
 });
 /*----- functions -----*/
 init();
@@ -81,7 +92,7 @@ function render() {
 function startCountDown() {
     backMusic.loop=true;
     backMusic.play();
-    backMusic.volume = 0.2;
+    backMusic.volume = 0.1;
     firstLoad = false;
     startBtn.style.visibility = 'hidden';
     let count = 120
@@ -125,7 +136,8 @@ function handleClick(evt) {
     if (firstClick && secondClick) {
         ignoreClick = true;
         wrong ++; 
-        console.log ('not a match');
+        wrongNoise.play();
+        wrongNoise.volume = 0.6;
         setTimeout(function() {
             firstClick.matched = false;
             secondClick.matched = false;
@@ -145,6 +157,9 @@ function checkWinner(){
     if (checkWinner === true) {
         gameResultEl.innerText = 'You won!';
         gameStatus = 'done';
+        winNoise.play();
+        winNoise.volume = 0.6;
+        backMusic.pause();
     return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
