@@ -79,7 +79,6 @@ function init() {
     ignoreClick = false;
     wrong = 0;
     gameStatus = false;
-    // gameResultEl.innerText = '';
     render();
 }
 
@@ -162,11 +161,10 @@ function checkWinner(){
         winNoise.play();
         winNoise.volume = 0.6;
         backMusic.pause();
-    return console.log('you win')
+        return 
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
         gameStatus = 'done';
-        return console.log('you lose')
     } else if (wrong === 5) {
         gameResultEl.innerText = "You are out of guesses";
         gameStatus = 'done';
