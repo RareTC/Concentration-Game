@@ -118,7 +118,7 @@ function renderBoard() {
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
         cardImgEl.src = src;
     });
-    wrongEl.innerText = `Incorrect ${wrong}/5`;
+    wrongEl.innerText = `Incorrect ${wrong}/7`;
 }
     
 function handleClick(evt) {
@@ -161,11 +161,11 @@ function checkWinner(){
         winNoise.play();
         winNoise.volume = 0.6;
         backMusic.pause();
-        return 
+    return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
         gameStatus = 'done';
-    } else if (wrong === 5) {
+    } else if (wrong === 7) {
         gameResultEl.innerText = "You are out of guesses";
         gameStatus = 'done';
     }
