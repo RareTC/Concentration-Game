@@ -5,9 +5,9 @@
 
   <div id="description" align="center">
 
-  # Concentration Game - Avatar the Last Airbender inspired
+  # Concentration Game - Avatar the Last Airbender Inspired
 
-  ### https://raretc.github.io/Concentration-Game-/
+  ### [CLICK HERE TO PLAY](https://raretc.github.io/Concentration-Game-/)
 
   ##### Trevor Campbell
 
