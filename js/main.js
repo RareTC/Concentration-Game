@@ -95,7 +95,7 @@ function startCountDown() {
     backMusic.volume = 0.1;
     firstLoad = false;
     startBtn.style.visibility = 'hidden';
-    let count = 120
+    let count = 5
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
         count--; 
@@ -103,6 +103,10 @@ function startCountDown() {
         if (count) {
             countdownEl.innerText = count;
         } if (gameStatus === 'done') { 
+            clearInterval(timerId)
+            countdownEl.innerText = count;
+            render();
+        } if (count === 0) { 
             clearInterval(timerId)
             countdownEl.innerText = count;
             render();
@@ -117,7 +121,7 @@ function renderBoard() {
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
         cardImgEl.src = src;
     });
-    wrongEl.innerText = `Guesses left: ${wrong}/5`;
+    wrongEl.innerText = `Incorrect ${wrong}/5`;
 }
     
 function handleClick(evt) {
@@ -163,6 +167,7 @@ function checkWinner(){
     return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
+        gameStatus = 'done';
         return console.log('you lose')
     } else if (wrong === 5) {
         gameResultEl.innerText = "You are out of guesses";
