@@ -65,7 +65,7 @@ resetBtn.addEventListener('click', function() {
     init();
     startCountDown();
     replayNoise.play();
-    replayNoise.volume = 0.6;
+    replayNoise.volume = 1;
     gameStatus = false;
     gameResultEl.innerText = '';
 });
@@ -159,7 +159,7 @@ function checkWinner(){
         gameResultEl.innerText = 'You won!';
         gameStatus = 'done';
         winNoise.play();
-        winNoise.volume = 0.6;
+        winNoise.volume = 1;
         backMusic.pause();
     return console.log('you win')
     } else if (countdownEl.innerText === '0'){
