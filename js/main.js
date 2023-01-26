@@ -55,15 +55,11 @@ const backMusic = new Audio ('sound/backmusic.mp3');
 const replayNoise = new Audio ('sound/replaynoise.mp3');
 const winNoise = new Audio ('sound/winnoise.mp3');
 const wrongNoise = new Audio ('sound/wrongnoise.mp3');
-const startNoise = new Audio ('sound/startnoise.mp3');
-
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
 startBtn.addEventListener('click', function(){
     startCountDown();
-    startNoise.play();
-    startNoise.volume = 0.6;
 });
 resetBtn.addEventListener('click', function() {
     init();
@@ -141,7 +137,7 @@ function handleClick(evt) {
         ignoreClick = true;
         wrong ++; 
         wrongNoise.play();
-        wrongNoise.volume = 0.6;
+        wrongNoise.volume = 1;
         setTimeout(function() {
             firstClick.matched = false;
             secondClick.matched = false;
