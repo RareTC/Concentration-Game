@@ -66,6 +66,8 @@ resetBtn.addEventListener('click', function() {
     startCountDown();
     replayNoise.play();
     replayNoise.volume = 0.6;
+    gameStatus = false;
+    gameResultEl.innerText = '';
 });
 /*----- functions -----*/
 init();
@@ -77,7 +79,7 @@ function init() {
     ignoreClick = false;
     wrong = 0;
     gameStatus = false;
-    gameResultEl.innerText = '';
+    // gameResultEl.innerText = '';
     render();
 }
 
@@ -91,7 +93,7 @@ function startCountDown() {
     backMusic.volume = 0.1;
     firstLoad = false;
     startBtn.style.visibility = 'hidden';
-    let count = 5
+    let count = 120;
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
         count--; 
@@ -102,7 +104,7 @@ function startCountDown() {
             clearInterval(timerId)
             countdownEl.innerText = count;
             render();
-        } if (count === 0) { 
+        } if (count <= 0) { 
             clearInterval(timerId)
             countdownEl.innerText = count;
             render();
