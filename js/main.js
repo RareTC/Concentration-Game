@@ -165,9 +165,11 @@ function checkWinner(){
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
         gameStatus = 'done';
+        backMusic.pause();
     } else if (wrong === 7) {
         gameResultEl.innerText = "You are out of guesses";
         gameStatus = 'done';
+        backMusic.pause();
     }
 }
 function getShuffledCards() {
