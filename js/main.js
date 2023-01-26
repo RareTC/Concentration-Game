@@ -117,7 +117,7 @@ function renderBoard() {
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
         cardImgEl.src = src;
     });
-    wrongEl.innerText = `${wrong}/5`;
+    wrongEl.innerText = `Guesses left: ${wrong}/5`;
 }
     
 function handleClick(evt) {

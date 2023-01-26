@@ -50,7 +50,7 @@ body {
     justify-content: space-between
 }
 .resetbutton , .startbutton {
-    background-color: #808080;
+    background-color: rgb(255, 251, 177);
     color: rgb(179, 91, 68);    
     font-size: 3vmax;
     animation: pulse-white 2s infinite;
@@ -77,6 +77,7 @@ body {
 
 #points .wrong{
     font-size: 2vmax;
+    color: black;
 }
 #gameresult {
     font-size: 2vmax;
