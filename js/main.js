@@ -91,7 +91,7 @@ function startCountDown() {
     backMusic.play();
     backMusic.volume = 0.1;
     firstLoad = false;
-    startBtn.style.visibility = 'hidden';
+    startBtn.style.display = 'none';
     let count = 120;
     countdownEl.innerText = count;
     let timerId = setInterval(function() {
@@ -112,7 +112,7 @@ function startCountDown() {
 }
 
 function renderBoard() {
-    resetBtn.style.visibility = gameStatus === 'done' ? 'visible' : 'hidden';
+    resetBtn.style.display = gameStatus === 'done' ? 'block' : 'none';
     cards.forEach(function(imgEl, idx) {
         const cardImgEl = document.getElementById(idx)
         const src = (imgEl.matched || imgEl === firstClick || imgEl === secondClick) ? imgEl.img : BACK_CARD;
