@@ -161,7 +161,6 @@ function checkWinner(){
         winNoise.play();
         winNoise.volume = 1;
         backMusic.pause();
-    return console.log('you win')
     } else if (countdownEl.innerText === '0'){
         gameResultEl.innerText = 'You are out of time!';
         gameStatus = 'done';
