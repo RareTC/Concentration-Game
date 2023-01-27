@@ -124,15 +124,15 @@ function renderBoard() {
 function handleClick(evt) {
     const cardIdx = parseInt(evt.target.id)
     const card = cards[cardIdx];
-    if (gameStatus === 'done' || isNaN(cardIdx) || ignoreClick || cards[cardIdx] === firstClick || firstLoad) return;
+    if (gameStatus === 'done' || isNaN(cardIdx) || ignoreClick || card === firstClick || firstLoad || card.matched) return;
     if (firstClick) secondClick = card
     if (!firstClick) firstClick = card
     card.matched = true;
     if (firstClick?.img === secondClick?.img) {
-        firstClick.matched =true
-        secondClick.matched = true
-        firstClick = null
-        secondClick = null
+        firstClick.matched =true;
+        secondClick.matched = true;
+        firstClick = null;
+        secondClick = null;
     } 
     if (firstClick && secondClick) {
         ignoreClick = true;
@@ -142,8 +142,8 @@ function handleClick(evt) {
         setTimeout(function() {
             firstClick.matched = false;
             secondClick.matched = false;
-            firstClick = null
-            secondClick = null
+            firstClick = null;
+            secondClick = null;
             ignoreClick = false;
             render();
         }, 2000);
