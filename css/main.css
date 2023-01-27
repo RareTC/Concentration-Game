@@ -22,23 +22,23 @@ h3 {
 }
 section > div {
     color: #808080;
-    text-shadow: -1px 3px black;
 }
 
 body {
     background-image: url(https://w0.peakpx.com/wallpaper/230/19/HD-wallpaper-appa-netflix-the-avatar-the-last-airbender.jpg);
     background-repeat: no-repeat;
-    background-position: bottom 00px; 
+    background-position: bottom 100px; 
     background-size: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin-top: 0px;
+    min-height: 100vh;
 }
 #board {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(4, auto);
 }
 #board > img {
     border: solid rgb(7, 7, 7);
@@ -56,7 +56,9 @@ body {
 }
 #points {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
+
 }
 #belowboard {
     display: flex;
@@ -89,7 +91,6 @@ body {
     }
     
 #countdown {
-    background-color: rgba(179, 91, 68, 0.5);
     border-radius: 20px; 
     margin-top: 30px;
     font-size: 3vmax;
@@ -97,14 +98,13 @@ body {
 }
 
 #points .wrong{
-    background-color: rgba(179, 91, 68, 0.5);
     border-radius: 15px; 
     margin-top: 70px;
     font-size: 2vmax;
     color: black;
 }
 #gameresult {
-    background-color: rgba(179, 91, 68, 0.5);
+    background-color: rgba(255, 251, 177, 0.8);
     border-radius: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
