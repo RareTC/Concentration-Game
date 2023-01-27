@@ -87,7 +87,7 @@ function render() {
 function startCountDown() {
     backMusic.loop=true;
     backMusic.play();
-    backMusic.volume = 0.1;
+    backMusic.volume = 0.05;
     firstLoad = false;
     startBtn.style.display = 'none';
     let count = 120;
