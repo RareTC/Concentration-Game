@@ -58,9 +58,7 @@ const wrongNoise = new Audio ('sound/wrongnoise.mp3');
 
 /*----- event listeners -----*/
 boardEl.addEventListener('click', handleClick);
-startBtn.addEventListener('click', function(){
-    startCountDown();
-});
+startBtn.addEventListener('click',startCountDown);
 resetBtn.addEventListener('click', function() {
     init();
     startCountDown();
