@@ -39,6 +39,7 @@ body {
 #board {
     display: grid;
     grid-template-columns: repeat(4, auto);
+    
 }
 #board > img {
     border: solid rgb(7, 7, 7);
