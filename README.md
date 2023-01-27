@@ -29,8 +29,8 @@ before the game is over. To win you must match all of the cards before either of
 
   |   Description | Screenshot | 
   |:-------------:| -----------|
-  | <h3>Homescreen</h3> | <a href="https://imgur.com/4FXMHO6"><img src="https://i.imgur.com/4FXMHO6.png" title="source: imgur.com" width = "700"/></a>
-  | <h3 align="center">Winning Game</h3> |<a href="https://imgur.com/CK6kScO"><img src="https://i.imgur.com/CK6kScO.png" title="source: imgur.com" width="700"/></a>
+  | <h3>Homescreen</h3> | <a href="https://imgur.com/zZkl2Rb"><img src="https://i.imgur.com/zZkl2Rb.png" title="source: imgur.com" width="700"/></a>
+  | <h3 align="center">Winning Game</h3> |<a href="https://imgur.com/8YnyEM6"><img src="https://i.imgur.com/8YnyEM6.png" title="source: imgur.com" width="700"/></a>
   
    ## :computer: Technologies 
     
@@ -64,3 +64,5 @@ before the game is over. To win you must match all of the cards before either of
 - [:x:] Difficulty Options.
 
 - [:x:] Levels as you progress.
+
+- [:white_check_mark:] Make 3 rows of 4 for better UI experience.
