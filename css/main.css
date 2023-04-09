@@ -4,7 +4,7 @@
     text-align: center;
 }
 h1 {
-    font-size: 4vmax;
+    font-size: 70px;
     letter-spacing: 0.5vmin;
     margin-top: 20px;
     margin-bottom: 0px;
@@ -72,6 +72,12 @@ body {
     font-size: 3vmax;
     animation: pulse-white 2s infinite;
     border-radius: 30px;
+    border-color: rgb(179,91,68);
+}
+
+.resetbutton:hover , .startbutton:hover {
+    background-color: rgb(179,91,68);
+    color: rgb(255, 251, 177);
 }
 
 @keyframes pulse-white {
@@ -141,10 +147,10 @@ body {
     }
 
     #countdown {
-        font-size: small;
+        font-size: 20px;
     }
 
         #points .wrong {
-        font-size: small;
+        font-size: 15px;
     }
 }
