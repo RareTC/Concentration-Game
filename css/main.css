@@ -6,20 +6,18 @@
 h1 {
     font-size: 4vmax;
     letter-spacing: 0.5vmin;
-    margin-top: 0px;
+    margin-top: 20px;
     margin-bottom: 0px;
 }
 h2 {
     font-size: 2vmax;
-    margin-top: 10px;
+    margin-bottom: 0px;
 }
 h3 {
     font-size: 25px;
     display: inline;
-    border-inline-end: 2vmin;
-    border-radius: 10px;
-    opacity: 0.8;
 }
+
 section > div {
     color: #808080;
 }
@@ -27,15 +25,13 @@ section > div {
 body {
     background-image: url(https://w0.peakpx.com/wallpaper/230/19/HD-wallpaper-appa-netflix-the-avatar-the-last-airbender.jpg);
     background-repeat: no-repeat;
-    background-position: bottom 100px; 
     background-size: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     margin-top: 0px;
-    min-height: 100vh;
 }
+
 #board {
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -43,13 +39,13 @@ body {
 }
 #board > img {
     border: solid rgb(7, 7, 7);
-    margin: 1vmin 3vmin;
+    margin: 20px 30px;
     justify-content: center;
     background-color: rgb(206, 99, 63); 
-    background: linear-gradient(rgb(206, 99, 63), rgb(67, 19, 33));
+    background: linear-gradient(hwb(15 25% 19%), rgb(67, 19, 33));
     border-radius: 20%;
-    height: 225px;
-    width: 200px;
+    height: 175px;
+    width: 150px;
 }
 #board > img:hover {
     border: solid black;
@@ -61,12 +57,14 @@ body {
     align-items: center;
 
 }
+
 #belowboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .resetbutton , .startbutton {
     display: flex;
     background-color: rgb(255, 251, 177);
@@ -75,6 +73,7 @@ body {
     animation: pulse-white 2s infinite;
     border-radius: 30px;
 }
+
 @keyframes pulse-white {
     0% {
       transform: scale(.95);
@@ -90,16 +89,15 @@ body {
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
     }    
+
 #countdown {
     border-radius: 20px; 
-    margin-top: 30px;
-    font-size: 3vmax;
+    font-size: 70px;
     color: black;
 }
 #points .wrong{
     border-radius: 15px; 
-    margin-top: 70px;
-    font-size: 2vmax;
+    font-size: 40px;
     color: black;
 }
 #gameresult {
@@ -109,4 +107,45 @@ body {
     margin-bottom: 15px;
     font-size: 2vmax;
     color: black;
+}
+
+
+@media screen and (width<1200px) {
+    #board {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+    }
+
+    #board > img {
+        height: 120px;
+        width: 100px;
+    }
+}
+
+@media screen and (width<600px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    h3 {
+        font-size: 12px;
+        display: inline;
+    }
+    #board > img {
+        margin: 5px 10px;
+        height: 80px;
+        width: 60px;
+    }
+
+    #countdown {
+        font-size: small;
+    }
+
+        #points .wrong {
+        font-size: small;
+    }
+
 }

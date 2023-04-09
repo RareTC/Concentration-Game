@@ -64,8 +64,6 @@ resetBtn.addEventListener('click', function() {
     startCountDown();
     replayNoise.play();
     replayNoise.volume = 1;
-    gameStatus = false;
-    gameResultEl.innerText = '';
 });
 /*----- functions -----*/
 init();
@@ -77,6 +75,7 @@ function init() {
     ignoreClick = false;
     wrong = 0;
     gameStatus = false;
+    gameResultEl.innerText = '';
     render();
 }
 
