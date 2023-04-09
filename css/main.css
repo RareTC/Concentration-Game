@@ -116,7 +116,7 @@ body {
 }
 
 
-@media screen and (width<1200px) {
+@media screen and (min-width: 1200px) {
     #board {
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -128,7 +128,7 @@ body {
     }
 }
 
-@media screen and (width<600px) {
+@media screen and (min-width: 600px) {
     h1 {
         font-size: 20px;
     }
