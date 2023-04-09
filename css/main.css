@@ -82,6 +82,7 @@ body {
     color: rgb(255, 251, 177);
 }
 
+
 @keyframes pulse-white {
     0% {
       transform: scale(.95);
@@ -109,12 +110,14 @@ body {
     color: black;
 }
 #gameresult {
-    background-color: rgba(255, 251, 177, 0.8);
     border-radius: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 2vmax;
-    color: black;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: rgb(255, 251, 177);
+    background-color: rgb(179,91,68);
+    padding-right: 10px;
+    padding-left: 10px;
+    letter-spacing: 4px;
 }
 
 
@@ -162,5 +165,9 @@ body {
 
     .resetbutton , .startbutton {
         font-size: 20px;
+    }
+    
+    #gameresult {
+        font-size: 15px;
     }
 }
