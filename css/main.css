@@ -69,10 +69,12 @@ body {
     display: flex;
     background-color: rgb(255, 251, 177);
     color: rgb(179, 91, 68);    
-    font-size: 3vmax;
+    font-size: 50px;
     animation: pulse-white 2s infinite;
     border-radius: 30px;
     border-color: rgb(179,91,68);
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .resetbutton:hover , .startbutton:hover {
@@ -116,7 +118,7 @@ body {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     #board {
         display: grid;
         grid-template-columns: repeat(3, auto);
@@ -126,9 +128,13 @@ body {
         height: 120px;
         width: 110px;
     }
+
+    .resetbutton , .startbutton {
+        font-size: 30px;
+    }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
     h1 {
         font-size: 20px;
     }
@@ -152,5 +158,9 @@ body {
 
         #points .wrong {
         font-size: 15px;
+    }
+
+    .resetbutton , .startbutton {
+        font-size: 20px;
     }
 }
