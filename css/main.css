@@ -25,7 +25,7 @@ section > div {
 body {
     background-image: url(https://w0.peakpx.com/wallpaper/230/19/HD-wallpaper-appa-netflix-the-avatar-the-last-airbender.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,8 +44,8 @@ body {
     background-color: rgb(206, 99, 63); 
     background: linear-gradient(hwb(15 25% 19%), rgb(67, 19, 33));
     border-radius: 20%;
-    height: 175px;
-    width: 150px;
+    height: 200px;
+    width: 210px;
 }
 #board > img:hover {
     border: solid black;
@@ -118,7 +118,7 @@ body {
 
     #board > img {
         height: 120px;
-        width: 100px;
+        width: 110px;
     }
 }
 
@@ -136,8 +136,8 @@ body {
     }
     #board > img {
         margin: 5px 10px;
-        height: 80px;
-        width: 60px;
+        height: 90px;
+        width: 80px;
     }
 
     #countdown {
